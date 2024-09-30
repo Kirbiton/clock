@@ -33,6 +33,7 @@ namespace clock
         bool secundam = false;
 
         ColorDialog Dima = new ColorDialog();
+        FontDialog Fontein = new FontDialog();
         Color CHandS = Color.DarkOrange;
         Color CHandM = Color.Gray;
         Color CHandH = Color.Black;
@@ -148,6 +149,7 @@ namespace clock
 
         private void label5_Click(object sender, EventArgs e)
         {
+
             ///Шрифт часов
         }
 
@@ -160,9 +162,10 @@ namespace clock
         private void label7_Click(object sender, EventArgs e)
         {
             ///Шрифт эл ч
+            if (Fontein.ShowDialog() == DialogResult.OK) TimeLabel.Font = Fontein.Font;
         }
 
-        
+
 
         private void t_Tick(object sender, EventArgs e)
         {
