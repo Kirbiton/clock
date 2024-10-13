@@ -20,3 +20,13 @@ C:\Users\pl1226.PL1\source\repos\clock\clock\obj\Debug\clock.csproj.GenerateReso
 C:\Users\pl1226.PL1\source\repos\clock\clock\obj\Debug\clock.csproj.CoreCompileInputs.cache
 C:\Users\pl1226.PL1\source\repos\clock\clock\obj\Debug\clock.exe
 C:\Users\pl1226.PL1\source\repos\clock\clock\obj\Debug\clock.pdb
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\bin\Debug\clock.exe.config
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\bin\Debug\clock.exe
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\bin\Debug\clock.pdb
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\obj\Debug\clock.csproj.AssemblyReference.cache
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\obj\Debug\clock.Form1.resources
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\obj\Debug\clock.Properties.Resources.resources
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\obj\Debug\clock.csproj.GenerateResource.cache
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\obj\Debug\clock.csproj.CoreCompileInputs.cache
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\obj\Debug\clock.exe
+C:\Users\tohan\OneDrive\Рабочий стол\Кодики\clock\clock\obj\Debug\clock.pdb

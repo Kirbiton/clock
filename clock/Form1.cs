@@ -18,6 +18,8 @@ namespace clock
         int secHAND = 100, minHAND = 90, hrHAND = 75;
         Timer t = new Timer();
 
+        System.Drawing.Size  fontsize;
+
         [DllImport("user32", CharSet = CharSet.Auto)]
         internal extern static bool PostMessage(IntPtr hWnd, uint Msg, uint WParam, uint LParam);
         [DllImport("user32", CharSet = CharSet.Auto)]
@@ -25,18 +27,18 @@ namespace clock
 
         bool Electroni_clock = false;
         bool Settings = false;
+        bool secundam = false;
 
         int s = 0;
         int m = 0;
         int h = 0;
-
-        bool secundam = false;
 
         ColorDialog Dima = new ColorDialog();
         FontDialog Fontein = new FontDialog();
         Color CHandS = Color.DarkOrange;
         Color CHandM = Color.Gray;
         Color CHandH = Color.Black;
+        Color clock = Color.Black;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -90,34 +92,51 @@ namespace clock
             {
                 Size = new Size(350, 350);
                 Electroni_clock = false;
+                TimeLabel.Visible = false;
             }
             else
             {
                 Size = new Size(350, 400);
                 Electroni_clock = true;
+                TimeLabel.Visible = true;
             }
         }
         private void настройкиToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (Settings && Electroni_clock)
             {
-                Size = new Size(350, 350);
+                Size = new Size(350, 400);
                 Settings = false;
+                pictureBox2.Visible = false;
             }
             else if(Settings && !Electroni_clock)
             {
-                Size = new Size(350, 400);
+                Size = new Size(350, 350);
                 Settings = false;
+                pictureBox2.Visible = false;
             }
             else
             {
-                Size = new Size(600, 400);
+                Size = new Size(830, 450);
                 Settings = true;
+                pictureBox2.Visible = true;
             }
         }
 
         private void секундомерToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int[] handCoord = new int[2];
+            Graphics g = pictureBox1.CreateGraphics();
+
+            ////стирание стрелок
+            handCoord = msCoord(s, secHAND + 4);
+            g.DrawLine(new Pen(Color.White, 45f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
+            handCoord = msCoord(m, minHAND + 4);
+            g.DrawLine(new Pen(Color.White, 40f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
+            handCoord = hrCoord(h % 12, m, hrHAND + 4);
+            g.DrawLine(new Pen(Color.White, 20f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
+            TimeLabel.Text = "";
+
             secundam = !secundam;
             s = 0;
             m = 0;
@@ -126,46 +145,70 @@ namespace clock
 
         private void label1_Click(object sender, EventArgs e)
         {
-            if (Dima.ShowDialog() == DialogResult.OK)
-                CHandS = Dima.Color;
+            if (Dima.ShowDialog() == DialogResult.OK) CHandS = Dima.Color;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            if (Dima.ShowDialog() == DialogResult.OK)
-                CHandM = Dima.Color;
+            if (Dima.ShowDialog() == DialogResult.OK) CHandM = Dima.Color;
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            if (Dima.ShowDialog() == DialogResult.OK)
-                CHandH = Dima.Color;
+            if (Dima.ShowDialog() == DialogResult.OK) CHandH = Dima.Color;
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            ///Цвет часов
+            if (Dima.ShowDialog() == DialogResult.OK) clock = Dima.Color;
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-
             ///Шрифт часов
+            if (Fontein.ShowDialog() == DialogResult.OK)
+            {
+                Font Num = new Font(Fontein.Font.FontFamily, Num0.Font.Size, Fontein.Font.Style);
+                Num0.Font = Num;
+                Num1.Font = Num;
+                Num2.Font = Num;
+                Num3.Font = Num;
+                Num4.Font = Num;
+                Num5.Font = Num;
+                Num6.Font = Num;
+                Num7.Font = Num;
+                Num8.Font = Num ;
+                Num9.Font = Num;
+                Num10.Font = Num;
+                Num11.Font = Num;
+            }
+
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            if (Dima.ShowDialog() == DialogResult.OK)
-            TimeLabel.ForeColor = Dima.Color;
+            if (Dima.ShowDialog() == DialogResult.OK) TimeLabel.ForeColor = Dima.Color;
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
-            ///Шрифт эл ч
-            if (Fontein.ShowDialog() == DialogResult.OK) TimeLabel.Font = Fontein.Font;
+            if (Fontein.ShowDialog() == DialogResult.OK) { 
+                Font El = new Font(Fontein.Font.FontFamily, TimeLabel.Font.Size, Fontein.Font.Style);
+                TimeLabel.Font = El;
+            }
         }
 
+        private void внизуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeLabel.Location = new Point(83, 351);
+            TimeLabel.BackColor = Color.AliceBlue;
+        }
 
+        private void посерединеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeLabel.Location = new Point(83, 151);
+            TimeLabel.BackColor = Color.White;
+        }
 
         private void t_Tick(object sender, EventArgs e)
         {
@@ -191,14 +234,8 @@ namespace clock
             int[] handCoord = new int[2];
             Graphics g = pictureBox1.CreateGraphics();
 
-            ////стирание стрелок
-            handCoord = msCoord(s, secHAND + 4);
-            g.DrawLine(new Pen(Color.White, 45f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
-            handCoord = msCoord(m, minHAND + 4);
-            g.DrawLine(new Pen(Color.White, 40f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
-            handCoord = hrCoord(h % 12, m, hrHAND + 4);
-            g.DrawLine(new Pen(Color.White, 20f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
             TimeLabel.Text = "";
+            g.DrawEllipse(new Pen(Color.White, 170f), 90, 90, 170, 170);
 
 
             /////рисование стрелок
@@ -208,7 +245,9 @@ namespace clock
             g.DrawLine(new Pen(CHandM, 2f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
             handCoord = msCoord(s, secHAND);
             g.DrawLine(new Pen(CHandS, 2f), new Point(cx, cy), new Point(handCoord[0], handCoord[1]));
-            
+
+            g.DrawEllipse(new Pen(clock, 6f), 2, 2, 345, 345);
+
             if (h < 10) TimeLabel.Text += $"0{h}:";
             else TimeLabel.Text += $"{h}:";
             if (m < 10) TimeLabel.Text += $"0{m}:";
@@ -222,6 +261,8 @@ namespace clock
             this.BackColor = Color.AliceBlue;
             this.TransparencyKey = this.BackColor;
             ContextMenuStrip = contextMenuStrip1;
+
+            fontsize = Num0.Size;
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
