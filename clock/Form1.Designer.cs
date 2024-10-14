@@ -35,6 +35,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.закрытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.электронкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.внизуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.посерединеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.секундомерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,8 +61,7 @@
             this.Num9 = new System.Windows.Forms.Label();
             this.Num10 = new System.Windows.Forms.Label();
             this.Num11 = new System.Windows.Forms.Label();
-            this.внизуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.посерединеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -80,7 +81,7 @@
             // TimeLabel
             // 
             this.TimeLabel.AutoSize = true;
-            this.TimeLabel.BackColor = System.Drawing.Color.White;
+            this.TimeLabel.BackColor = System.Drawing.Color.Transparent;
             this.TimeLabel.Font = new System.Drawing.Font("Microsoft YaHei", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TimeLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.TimeLabel.Location = new System.Drawing.Point(83, 351);
@@ -113,9 +114,23 @@
             this.внизуToolStripMenuItem,
             this.посерединеToolStripMenuItem});
             this.электронкаToolStripMenuItem.Name = "электронкаToolStripMenuItem";
-            this.электронкаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.электронкаToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.электронкаToolStripMenuItem.Text = "Электронка";
             this.электронкаToolStripMenuItem.Click += new System.EventHandler(this.электронкаToolStripMenuItem_Click);
+            // 
+            // внизуToolStripMenuItem
+            // 
+            this.внизуToolStripMenuItem.Name = "внизуToolStripMenuItem";
+            this.внизуToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.внизуToolStripMenuItem.Text = "внизу";
+            this.внизуToolStripMenuItem.Click += new System.EventHandler(this.внизуToolStripMenuItem_Click);
+            // 
+            // посерединеToolStripMenuItem
+            // 
+            this.посерединеToolStripMenuItem.Name = "посерединеToolStripMenuItem";
+            this.посерединеToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.посерединеToolStripMenuItem.Text = "посередине";
+            this.посерединеToolStripMenuItem.Click += new System.EventHandler(this.посерединеToolStripMenuItem_Click);
             // 
             // секундомерToolStripMenuItem
             // 
@@ -190,9 +205,9 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(621, 179);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 25);
+            this.label4.Size = new System.Drawing.Size(181, 25);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Цвет часов";
+            this.label4.Text = "Цвет обуха часов";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
@@ -203,9 +218,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(622, 217);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 25);
+            this.label5.Size = new System.Drawing.Size(135, 25);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Шрифт часов";
+            this.label5.Text = "Шрифт цифр";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
@@ -366,25 +381,25 @@
             this.Num11.TabIndex = 23;
             this.Num11.Text = "11";
             // 
-            // внизуToolStripMenuItem
+            // label8
             // 
-            this.внизуToolStripMenuItem.Name = "внизуToolStripMenuItem";
-            this.внизуToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.внизуToolStripMenuItem.Text = "внизу";
-            this.внизуToolStripMenuItem.Click += new System.EventHandler(this.внизуToolStripMenuItem_Click);
-            // 
-            // посерединеToolStripMenuItem
-            // 
-            this.посерединеToolStripMenuItem.Name = "посерединеToolStripMenuItem";
-            this.посерединеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.посерединеToolStripMenuItem.Text = "посередине";
-            this.посерединеToolStripMenuItem.Click += new System.EventHandler(this.посерединеToolStripMenuItem_Click);
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 14F);
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(590, 255);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(114, 25);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Цвет цифр";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 350);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.TimeLabel);
             this.Controls.Add(this.Num11);
             this.Controls.Add(this.Num10);
@@ -452,6 +467,7 @@
         private System.Windows.Forms.Label Num11;
         private System.Windows.Forms.ToolStripMenuItem внизуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem посерединеToolStripMenuItem;
+        private System.Windows.Forms.Label label8;
     }
 }
 
